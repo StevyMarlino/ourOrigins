@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::prefix(LaravelLocalization::setLocale())
+    ->middleware(['localize', 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'])
+    ->group(function () {
+        Route::get('/', [HomeController::class, 'index'])->name('home');
+        Route::get('/about', [HomeController::class, 'about'])->name('about');
+        Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    });
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
