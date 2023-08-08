@@ -6,5 +6,7 @@
 <link rel="stylesheet" href="{{ asset('fonts/ionicons/css/ionicons.min.css') }}">
 <link rel="stylesheet" href="{{ asset('fonts/fontawesome/css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ asset('fonts/flaticon/font/flaticon.css') }}">
-<link rel="stylesheet" href="{{ asset('css/whatsapp.css') }}" rel="stylesheet"/>
+<link rel="stylesheet" href="{{ asset('css/whatsapp.css') }}"/>
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+{{-- {{ setting('site.google_analytics_tracking_id') }} --}}
