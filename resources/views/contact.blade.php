@@ -29,7 +29,7 @@
             @endif
             <div class="row blog-entries">
                 <div class="col-md-12 col-lg-8 main-content">
-                    <form action="{{ route('contact') }}" method="post">
+                    <form action="{{ route('contacts') }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-4 form-group">
