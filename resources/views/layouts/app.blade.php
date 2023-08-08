@@ -53,51 +53,23 @@
                             <h3>Latest Post</h3>
                             <div class="post-entry-sidebar">
                                 <ul>
-                                    <li>
-                                        <a href="#">
-                                            <img src="images/img_6.jpg" alt="Image placeholder" class="mr-4">
-                                            <div class="text">
-                                                <h4>There’s a Cool New Way for Men to Wear Socks
-                                                    and Sandals</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">March 15, 2018 </span>
-                                                    &bullet;
-                                                    <span class="ml-2"><span class="fa fa-comments"></span>
-                                                        3</span>
+                                    @forelse ($posts as $post)
+                                        <li>
+                                            <a href="{{ route('details',$post->slug) }}">
+                                                <img src="{{ asset(Voyager::image($post->image)) }}" alt="Image placeholder"
+                                                    class="mr-4">
+                                                <div class="text">
+                                                    <h4> {{ $post->title }} </h4>
+                                                    <div class="post-meta">
+                                                        <span class="mr-2">{{ $post->created_at->format('F d, Y') }}</span>
+    
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="images/img_3.jpg" alt="Image placeholder" class="mr-4">
-                                            <div class="text">
-                                                <h4>There’s a Cool New Way for Men to Wear Socks
-                                                    and Sandals</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">March 15, 2018 </span>
-                                                    &bullet;
-                                                    <span class="ml-2"><span class="fa fa-comments"></span>
-                                                        3</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="images/img_4.jpg" alt="Image placeholder" class="mr-4">
-                                            <div class="text">
-                                                <h4>There’s a Cool New Way for Men to Wear Socks
-                                                    and Sandals</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">March 15, 2018 </span>
-                                                    &bullet;
-                                                    <span class="ml-2"><span class="fa fa-comments"></span>
-                                                        3</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
+                                            </a>
+                                        </li>
+                                    @empty
+                                        {{ __('Not data Post') }}
+                                    @endforelse
                                 </ul>
                             </div>
                         </div>
@@ -106,11 +78,9 @@
                             <div class="mb-5">
                                 <h3>Quick Links</h3>
                                 <ul class="list-unstyled">
+                                    <li><a href="#">Home</a></li>
                                     <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Travel</a></li>
-                                    <li><a href="#">Adventure</a></li>
-                                    <li><a href="#">Courses</a></li>
-                                    <li><a href="#">Categories</a></li>
+                                    <li><a href="#">Contact</a></li>
                                 </ul>
                             </div>
                             <div class="mb-5">
@@ -122,10 +92,6 @@
                                     </li>
                                     <li><a href="#"><span class="fa fa-instagram"></span>
                                             Instagram</a></li>
-                                    <li><a href="#"><span class="fa fa-vimeo"></span> Vimeo</a></li>
-                                    <li><a href="#"><span class="fa fa-youtube-play"></span>
-                                            Youtube</a></li>
-                                    <li><a href="#"><span class="fa fa-snapchat"></span> Snapshot</a>
                                     </li>
                                 </ul>
                             </div>

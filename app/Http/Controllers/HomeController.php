@@ -12,10 +12,8 @@ class HomeController extends Controller
     public function index() : View
     {
         $data = [
-            'posts' => Post::orderBy('created_at', 'desc')->where('status','PUBLISHED')->paginate(3),
             'alls6' => Post::orderBy('created_at', 'desc')->where('status','PUBLISHED')->paginate(6),
             'alls' => Post::orderBy('created_at', 'desc')->where('status','PUBLISHED')->get(),
-            'categories' => Category::orderBy('created_at', 'desc')->get(),
         ];
         return view('index', $data);
     }
@@ -23,5 +21,13 @@ class HomeController extends Controller
     public function about() : View
     {
         return view('about');
+    }
+
+    public function details($slug)
+    {
+        $data = [
+            'details' => Post::where('slug', $slug)->first(),
+        ];
+        return view('blog-single', $data);
     }
 }
