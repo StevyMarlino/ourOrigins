@@ -23,7 +23,7 @@ Route::prefix(LaravelLocalization::setLocale())
         Route::get('/contact', [ContactController::class, 'index'])->name('contact');
         Route::get('/blog-details/{slug}', [HomeController::class, 'details'])->name('details');
 
-        Route::post('contact-us',[ContactController::class, 'contact'])->name('contact');
+        Route::post('contact-us',[ContactController::class, 'contact'])->name('contacts');
     });
 
 Route::group(['prefix' => 'admin'], function () {
